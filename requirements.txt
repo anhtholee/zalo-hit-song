@@ -1,0 +1,9 @@
+scipy
+numpy
+pandas
+tensorflow
+keras
+sklearn
+mutagen
+xgboost
+tqdm
