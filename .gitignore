@@ -115,10 +115,3 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-/data/*
-!/data/.gitkeep 
-/audio-data/train/*
-!/audio-data/train/.gitkeep
-/audio-data/test/*
-!/audio-data/test/.gitkeep
-
