@@ -1,3 +1,9 @@
+"""
+============================
+XGB modelling with embedding features - for Zalo AI challenge
+============================
+Author: Le Anh Tho
+"""
 # Import libraries
 import numpy as np
 import pandas as pd
@@ -132,7 +138,6 @@ if __name__ == '__main__':
         'n_estimators': 1906, 
         'learning_rate': 0.01936476662662972
     }
-    print(X.shape)
     model = xgb.XGBRegressor(n_jobs=-1, objective="reg:squarederror",silent=0, **params)
     model.fit(X, y)
     test["label"] = np.clip(model.predict(test_matrix).round(4), 1, 10)

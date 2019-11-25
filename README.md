@@ -47,7 +47,7 @@ Run `python3 nn_main.py` to generate predictions as well as embedding matrices f
 python3 xgb_cb_naive.py && python3 xgb_embedding.py
 ```
 
-### Ensemble the predictions
+### Ensemble the predictions (averaging)
 ```shell
 python3 ensemble.py
 ```

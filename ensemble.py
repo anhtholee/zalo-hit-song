@@ -1,3 +1,9 @@
+"""
+============================
+Model ensembling - for Zalo AI challenge
+============================
+Author: Le Anh Tho
+"""
 # Import libraries
 import numpy as np
 import pandas as pd

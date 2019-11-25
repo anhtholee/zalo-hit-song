@@ -4,7 +4,6 @@ Audio metadata extraction - for Zalo AI challenge
 ============================
 Author: Le Anh Tho
 """
-# import librosa
 import numpy as np
 import pandas as pd
 # import scipy
@@ -13,7 +12,6 @@ from tqdm import tqdm
 import argparse
 import glob
 import multiprocessing
-# from sklearn.preprocessing import StandardScaler
 from utils.audio_metadata import *
 import csv
 
