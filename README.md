@@ -14,9 +14,9 @@
 > - We reserve the right to inspect submissions and source codes to maintain the integrity of the challenge.
 
 ## Data
-*(taken from competition site*
+*(taken from the competition site)*
 
-The data provided consists of two archives of audio files (.mp3 format) and .tsv files with metadata.
+The provided data consists of two archives of audio files (.mp3 format) and .tsv files with metadata.
 - `train.zip` and `test.zip`: the audio files composing the train and public test dataset. (9078 tracks for train and 1118 tracks for public test).
 - `train_info.tsv`, `test_info.tsv`: metadata of each song, including: ID, Title, Artist Name, Artist ID, Composer Name, Composers ID, Release Time.
 - `train_rank.csv`: the csv file contains the true rank of each song in the train set.
@@ -26,7 +26,7 @@ The data provided consists of two archives of audio files (.mp3 format) and .tsv
 
 ## How to create the submission file (tested on `python 3.7`)
 ### Package installation
-Run `pip install -r requirements.txt` or `python3 -m pip install -r requirements.txt` (globally or in a virtual enviroment).
+Run `pip install -r requirements.txt`.
 ### Data Preparation
 - Download all `csv` files from the competition site and put them into folder `data` in this working directory.
 - Download all `mp3` files from the competition site, extract and put them into `audio-data/train` and `audio-data/test` accordingly.
@@ -40,11 +40,11 @@ python3 gen_metadata.py --audio_dir=./audio-data/test --output_dir=./audio-featu
 ```
 
 ### Generate embedding features
-Run `python3 nn_main.py` to generate embedding matrices for categorical features.
+Run `python3 nn_main.py` to generate predictions as well as embedding matrices for categorical features, using neural net.
 
 ### Create predictions
 ```shell
-python3 predict_ml.py && python3 main_with_embedding.py
+python3 xgb_cb_naive.py && python3 xgb_embedding.py
 ```
 
 ### Ensemble the predictions

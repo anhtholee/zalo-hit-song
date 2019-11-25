@@ -6,4 +6,5 @@ keras
 sklearn
 mutagen
 xgboost
+catboost
 tqdm

@@ -9,7 +9,6 @@ import pandas as pd  # data processing, CSV file I/O (e.g. pd.read_csv)
 from sklearn.preprocessing import LabelEncoder
 from scipy.stats import uniform, randint, hmean
 from scipy.stats.mstats import gmean
-from functools import reduce
 
 # Credit: https://stackoverflow.com/a/56876351/4123563
 class LabelEncoderExt(object):
