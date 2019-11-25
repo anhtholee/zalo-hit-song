@@ -33,7 +33,7 @@ if __name__ == '__main__':
         preds[colname] = temp.iloc[:,0].values
         colnames.append(colname)
     # print(preds.head())
-    ws = [0.23847736, 0.17293857, 0.00106586, 0.04447066, 0.44001623] # loss 1.570766 - xgb3 + cb1 + naive2 + nn + xgb12(embedding)
+    ws = [0.23847736, 0.17293857, 0.00106586, 0.04447066, 0.44001623] # loss 1.570766 - xgb + cb + naive + nn + xgb(embedding)
     normalised_ws = np.round(np.array(ws) / np.sum(ws), 4)
     preds['label'] = np.clip(np.average(preds[colnames].to_numpy(), axis=1, weights=normalised_ws).round(4), 1, 10)
     print("Creating CSV file...")
