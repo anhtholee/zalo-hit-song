@@ -50,10 +50,12 @@ Run `pip install -r requirements.txt`.
 ```shell
 python3 gen_metadata.py --audio_dir=./audio-data/train --output_dir=./audio-features --output_name=train_song_metadata.csv
 ```
-and similarly for the test audios:
+and similarly for the test/private audios:
 ```shell
 python3 gen_metadata.py --audio_dir=./audio-data/test --output_dir=./audio-features --output_name=test_song_metadata.csv
+python3 gen_metadata.py --audio_dir=./audio-data/private --output_dir=./audio-features --output_name=private_song_metadata.csv
 ```
+Depending on the test set filename, replace `test_info.tsv` to `private_info.tsv` or vice-versa in all scripts (`xgb_cb_naive.py`, `nn_main.py`, `xgb_embedding.py`, `ensemble.py`), the same goes for the extra metadata file (either `private_song_metadata.csv` or `test_song_metadata.csv`)
 
 ### Generate embedding features
 Run `python3 nn_main.py` to generate predictions as well as embedding matrices for categorical features, using neural net.
@@ -68,4 +70,4 @@ python3 xgb_cb_naive.py && python3 xgb_embedding.py
 python3 ensemble.py
 ```
 
-The result would be in `submissions/final_submission.csv`.
+The result would be in `submissions/final_submission.csv`
