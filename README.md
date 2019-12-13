@@ -24,10 +24,10 @@ The provided data consists of two archives of audio files (.mp3 format) and .tsv
 
 ## Approach
 ### Features
-I had not the time to experiment mwith actual audio content (spectrogram, MFCC features, etc.). Therefore only the metadata (both from the `csv` file and the `mp3` files) are used. Apart from the metadata features, there are some engineered ones:
-- Datetime components (month, year, hour, day of week, etc.) are extracted and each are converted into cyclical components (sine & cosine).
-- `artist_is_composer`: whether the artist also composed the song
-- `hot_artist`, `hot_composer`: whether the artist/composer of the song is 'hot' (based on average ranking in the training set)
+I had not the time to experiment mwith actual audio content (spectrogram, MFCC features, etc.). Therefore only the metadata (both from the `csv` file and the `mp3` files) are used. Apart from the provided metadata features, there are some engineered ones:
+- Datetime components (month, year, hour, day of week, etc.) are extracted and each is converted into cyclical components (sine & cosine).
+- `artist_is_composer`: whether the artist also composed the song.
+- `hot_artist`, `hot_composer`: whether the artist/composer of the song is 'hot' (based on average ranking in the training set).
 - `n_artists`, `n_composers`: number of artists, composers featured in that song.
 - `is_cover`, `is_remix`, `is_beat`, `is_ost`: whether the song title contains the corresponding words.
 - Embedding features: Generated from neural network, the idea is from this original paper: [Entity Embeddings of Categorical Variables](http://arxiv.org/abs/1604.06737), which was inspired by Word2Vec's.
@@ -36,9 +36,11 @@ I had not the time to experiment mwith actual audio content (spectrogram, MFCC f
 Final submission is weighted average of 5 models:
 - XGBoost
 - CatBoost
-- Naive (predict the mean of artist/composers/album/genre ranking for each song)
+- Naive (this predicts the mean of artist/composers/album/genre ranking for each song, using the respective priority)
 - MLP (2 hidden layers of 64 & 32 nodes, categorical features represented as embedding matrices)
 - XGBoost with embedding features generated from MLP training.
+
+Note: Weights are tuned based on best average RMSE score in 8-fold validations.
 
 ## How to create the submission file (tested on `python 3.7`)
 ### Package installation
