@@ -24,7 +24,7 @@ The provided data consists of two archives of audio files (.mp3 format) and .tsv
 
 ## Approach
 ### Features
-I had not the time to experiment with actual audio content (spectrogram, MFCC features, etc.), which might be the key to get good results. Therefore only the metadata (both from the `csv` file and the `mp3` files) are used. Apart from the metadata features, there are some engineered ones:
+I had not the time to experiment mwith actual audio content (spectrogram, MFCC features, etc.). Therefore only the metadata (both from the `csv` file and the `mp3` files) are used. Apart from the metadata features, there are some engineered ones:
 - Datetime components (month, year, hour, day of week, etc.) are extracted and each are converted into cyclical components (sine & cosine).
 - `artist_is_composer`: whether the artist also composed the song
 - `hot_artist`, `hot_composer`: whether the artist/composer of the song is 'hot' (based on average ranking in the training set)
