@@ -30,7 +30,7 @@ I had not the time to experiment with actual audio content (spectrogram, MFCC fe
 - `hot_artist`, `hot_composer`: whether the artist/composer of the song is 'hot' (based on average ranking in the training set).
 - `n_artists`, `n_composers`: number of artists, composers featured in that song.
 - `is_cover`, `is_remix`, `is_beat`, `is_ost`: whether the song title contains the corresponding words.
-- Embedding features: Generated from neural network, the idea is from this original paper: [Entity Embeddings of Categorical Variables](http://arxiv.org/abs/1604.06737), which was inspired by Word2Vec's.
+- Embedding features: Generated from neural network, the idea is from this original paper: [Entity Embeddings of Categorical Variables](http://arxiv.org/abs/1604.06737), which was inspired by Word2Vec's. The embedder2 library used is cloned from [dkn22's repo](https://github.com/dkn22/embedder) with some minor changes to fit this project. Highly recommend this library if you want to quickly experiment with categorical variable embedding.
 
 ### Modelling
 Final submission is the weighted average of 5 models:
