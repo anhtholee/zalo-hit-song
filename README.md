@@ -24,7 +24,7 @@ The provided data consists of two archives of audio files (.mp3 format) and .tsv
 
 ## Approach
 ### Features
-I had not the time to experiment mwith actual audio content (spectrogram, MFCC features, etc.). Therefore only the metadata (both from the `csv` file and the `mp3` files) are used. Apart from the provided metadata features, there are some engineered ones:
+I had not the time to experiment with actual audio content (spectrogram, MFCC features, etc.), thus only the metadata (both from the `csv` file and the `mp3` files) are used. Apart from the provided metadata features, there are some engineered ones:
 - Datetime components (month, year, hour, day of week, etc.) are extracted and each is converted into cyclical components (sine & cosine).
 - `artist_is_composer`: whether the artist also composed the song.
 - `hot_artist`, `hot_composer`: whether the artist/composer of the song is 'hot' (based on average ranking in the training set).
@@ -33,7 +33,7 @@ I had not the time to experiment mwith actual audio content (spectrogram, MFCC f
 - Embedding features: Generated from neural network, the idea is from this original paper: [Entity Embeddings of Categorical Variables](http://arxiv.org/abs/1604.06737), which was inspired by Word2Vec's.
 
 ### Modelling
-Final submission is weighted average of 5 models:
+Final submission is the weighted average of 5 models:
 - XGBoost
 - CatBoost
 - Naive (this predicts the mean of artist/composers/album/genre ranking for each song, using the respective priority)
