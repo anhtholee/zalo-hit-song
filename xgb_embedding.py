@@ -21,7 +21,8 @@ if __name__ == '__main__':
     # Load training and test data
     train_info = pd.read_csv("data/train_info.tsv", delimiter="\t")
     train_rank = pd.read_csv("data/train_rank.csv")
-    test_info = pd.read_csv("data/test_info.tsv", delimiter="\t")
+    # test_info = pd.read_csv("data/test_info.tsv", delimiter="\t")
+    test_info = pd.read_csv("data/private_info.tsv", delimiter="\t")
 
     # Lowercase columns
     train_info.columns = map(str.lower, train_info.columns)
@@ -35,9 +36,12 @@ if __name__ == '__main__':
              .sort_values(by=["title", "label"])
              .drop_duplicates(subset=["title", "artist_name", "composers_name", "release_time"])
              )   
-    test = (pd.merge(test_info, pd.read_csv("audio-features/test_song_metadata.csv"), how="left", on="id")
+    test = (pd.merge(test_info, pd.read_csv("audio-features/private_song_metadata.csv"), how="left", on="id")
             .pipe(feature_pipeline)
             )
+    test['duration'].fillna((test['duration'].mean()), inplace=True)
+    test['album'].fillna('unknown', inplace=True)
+    test['genre'].fillna('unknown', inplace=True)
 
     # Load embeddings
     cat_cols = [

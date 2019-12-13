@@ -24,7 +24,7 @@ if __name__ == '__main__':
     if not os.path.exists("submissions"):
         os.mkdir("submissions")
     submissions = glob.glob('ensemble-models/*.csv')
-    preds = pd.read_csv('data/test_info.tsv', delimiter='\t', header=0, names=['id'], usecols=[0])
+    preds = pd.read_csv('data/private_info.tsv', delimiter='\t', header=0, names=['id'], usecols=[0])
     submissions = sorted(submissions)
     colnames = []
     for i,f in enumerate(submissions):
